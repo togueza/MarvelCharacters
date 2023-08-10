@@ -1,7 +1,9 @@
 package com.marvel.openpay.api.model;
 
 
-import javax.persistence.*;
+//import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "marvel_table")
