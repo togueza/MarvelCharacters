@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelService } from 'src/app/services/marvel.service';
+import { MarvelService } from '../../services/marvel.service';
 
 @Component({
   selector: 'app-add-tutorial',

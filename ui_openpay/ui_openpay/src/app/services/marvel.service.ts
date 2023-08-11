@@ -18,7 +18,11 @@ export class MarvelService {
     return this.http.get(`${baseUrl}/v1/public/characters/{characterId}`);
   }
 
-  findByTitle(title) {
-    return this.http.get(`${baseUrl}?title=${title}`);
+  create(data) {
+    return this.http.post(baseUrl, data);
+  }
+
+  findByCharacter(character) {
+    return this.http.get(`${baseUrl}?character=${character}`);
   }
 }

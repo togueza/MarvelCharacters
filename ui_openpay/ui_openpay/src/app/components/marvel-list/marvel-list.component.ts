@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelService } from 'src/app/services/marvel.service';
+import { MarvelService } from '../../services/marvel.service';
 
 @Component({
-  selector: 'app-tutorials-list',
+  selector: 'app-characters-list',
   templateUrl: './marvel-list.component.html',
   styleUrls: ['./marvel-list.component.css']
 })
 export class MarvelListComponent implements OnInit {
 
-  tutorials: any;
-  currentTutorial = null;
+  characters: any;
+  currentCharacter = null;
   currentIndex = -1;
-  title = '';
+  character = '';
 
-  constructor(private tutorialService: MarvelService) { }
+  constructor(private marvelService: MarvelService) { }
 
   ngOnInit() {
     this.retrieveTutorials();
   }
 
   retrieveTutorials() {
-    this.tutorialService.getAll()
+    this.marvelService.getAll()
       .subscribe(
         data => {
-          this.tutorials = data;
+          this.characters = data;
           console.log(data);
         },
         error => {
@@ -32,10 +32,10 @@ export class MarvelListComponent implements OnInit {
   }
 
   searchCharacter() {
-    this.tutorialService.findByTitle(this.title)
+    this.marvelService.findByCharacter(this.character)
       .subscribe(
         data => {
-          this.tutorials = data;
+          this.characters = data;
           console.log(data);
         },
         error => {

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'UI_Open_pay'`, () => {
+  it(`should have as title 'UiOpenPay'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('UI_Open_pay');
+    expect(app.title).toEqual('UiOpenPay');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('UI_Open_pay app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('UiOpenPay app is running!');
   });
 });

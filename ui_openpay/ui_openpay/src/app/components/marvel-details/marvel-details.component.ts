@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelService } from 'src/app/services/marvel.service';
+import { MarvelService } from '../../services/marvel.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tutorial-details',
+  selector: 'app-marvel-details',
   templateUrl: './marvel-details.component.html',
   styleUrls: ['./marvel-details.component.css']
 })
@@ -12,17 +12,17 @@ export class MarvelDetailsComponent implements OnInit {
   message = '';
 
   constructor(
-    private tutorialService: MarvelService,
+    private marvelService: MarvelService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
     this.message = '';
-    this.getTutorial(this.route.snapshot.paramMap.get('id'));
+    this.getCharacter(this.route.snapshot.paramMap.get('id'));
   }
 
-  getTutorial(id) {
-    this.tutorialService.get(id)
+  getCharacter(id) {
+    this.marvelService.get(id)
       .subscribe(
         data => {
           this.currentMarvel = data;

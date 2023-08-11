@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddMarvelComponent } from './add-marvel.component';
 
-describe('AddTutorialComponent', () => {
+describe('AddMarvelComponent', () => {
   let component: AddMarvelComponent;
   let fixture: ComponentFixture<AddMarvelComponent>;
 
