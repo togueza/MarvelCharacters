@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -21,8 +23,9 @@ public class SecurityConfig {
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(username -> {
             UserTable user = userRepository.findByUsername(username);//userRepository.findOne(username);
+            PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
             if (user != null) {
-                return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+                return new org.springframework.security.core.userdetails.User(user.getUsername(), encoder.encode(user.getPassword()),
                 true, true, true, true, AuthorityUtils.createAuthorityList("USER"));
             } else {
                 throw new UsernameNotFoundException("Could not find the user '" + username + "'");
