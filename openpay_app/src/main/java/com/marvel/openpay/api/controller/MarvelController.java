@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 //import com.bezkoder.spring.jpa.h2.model.Tutorial;
 //import com.bezkoder.spring.jpa.h2.repository.TutorialRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/api/marvel")
+@RequestMapping("/v1/characters")
 public class MarvelController {
 
     @Autowired
     MarvelRepository marvelRepository;
 
-    @GetMapping("/v1/public/characters")
+    @GetMapping
     public ResponseEntity<List<MarvelTable>> getAllCharacters(@RequestParam(required = false) String name) {
         try {
             List<MarvelTable> characters = new ArrayList<MarvelTable>();
@@ -47,7 +47,7 @@ public class MarvelController {
         }
     }
 
-    @GetMapping("/v1/public/characters/{characterId}")
+    @GetMapping("{characterId}")
     public ResponseEntity<MarvelTable> getTutorialById(@PathVariable("characterId") long id) {
         Optional<MarvelTable> characterData = marvelRepository.findById(id);
 

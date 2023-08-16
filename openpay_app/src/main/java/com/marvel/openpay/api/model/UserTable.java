@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.antlr.v4.runtime.misc.NotNull;
 
 //import javax.persistence.Entity;
 //import javax.persistence.Id;
@@ -20,5 +21,6 @@ public class UserTable {
     @Id
     private String username;
     private String password;
+    @NotNull
     private String name;
 }
