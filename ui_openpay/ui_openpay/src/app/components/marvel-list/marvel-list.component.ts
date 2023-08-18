@@ -16,10 +16,10 @@ export class MarvelListComponent implements OnInit {
   constructor(private marvelService: MarvelService) { }
 
   ngOnInit() {
-    this.retrieveTutorials();
+    this.retrieveCharacters();
   }
 
-  retrieveTutorials() {
+  retrieveCharacters() {
     this.marvelService.getAll()
       .subscribe(
         data => {

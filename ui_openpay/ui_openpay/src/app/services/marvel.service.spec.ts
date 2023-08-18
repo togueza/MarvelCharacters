@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TutorialService } from './tutorial.service';
+import { CharacterService } from './marvel.service';
 
-describe('TutorialService', () => {
+describe('CharacterService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TutorialService = TestBed.get(TutorialService);
+    const service: CharacterService = TestBed.get(CharacterService);
     expect(service).toBeTruthy();
   });
 });

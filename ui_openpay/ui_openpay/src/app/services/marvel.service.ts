@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:8080/api/marvel';
+const baseUrl = 'http://localhost:8080/v1/characters';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,11 @@ export class MarvelService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get(`${baseUrl}/v1/public/characters`);
+    return this.http.get(`${baseUrl}`);
   }
 
   get(id) {
-    return this.http.get(`${baseUrl}/v1/public/characters/{characterId}`);
+    return this.http.get(`${baseUrl}/{characterId}`);
   }
 
   create(data) {
